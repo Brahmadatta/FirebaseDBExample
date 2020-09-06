@@ -1,5 +1,6 @@
 package com.example.firebasedbexample
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -66,6 +67,10 @@ class CreateAccountActivity : AppCompatActivity() {
                         task : Task<Void> ->
                         if (task.isSuccessful)
                         {
+
+                            var intent = Intent(this,HomeScreenActivity::class.java)
+                            intent.putExtra("name",displayName)
+                            startActivity(intent)
 
                         }else{
 
