@@ -60,6 +60,7 @@ class CreateAccountActivity : AppCompatActivity() {
                     var userdataObj = HashMap<String,String>()
                     userdataObj.put("userid",userid.toString())
                     userdataObj.put("uid",mDatabase!!.key.toString())
+                    userdataObj.put("username",displayName)
                     userdataObj.put("userimage","default")
 
 
@@ -70,7 +71,9 @@ class CreateAccountActivity : AppCompatActivity() {
 
                             var intent = Intent(this,HomeScreenActivity::class.java)
                             intent.putExtra("name",displayName)
+                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                             startActivity(intent)
+                            finish()
 
                         }else{
 
