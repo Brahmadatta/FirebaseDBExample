@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">FirebaseDBExample</string>
+    <string name="create_account">Create Account</string>
+    <string name="enter_name">Enter Your Name</string>
+    <string name="enter_email_id">Enter Your Email Id</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="login_createAct">Login / Create Account</string>
+    <string name="login_as_user">Login As a User</string>
+    <string name="login_as_admin">Login As a Admin</string>
+    <string name="admin_username">Enter Admin Username</string>
+    <string name="admin_pass">Enter Admin Password</string>
+    <string name="login_admin">Login As Admin</string>
+</resources>
