@@ -52,14 +52,13 @@ class CreateAccountActivity : AppCompatActivity() {
                 if (task.isSuccessful)
                 {
                     var currentUser = firebaseAuth!!.currentUser
-                    var userid = firebaseAuth!!.uid
+                    var userid = currentUser!!.uid
 
                     mDatabase = FirebaseDatabase.getInstance().reference.child("UserData")
-                        .child(userid.toString())
+                        .child(userid)
 
                     var userdataObj = HashMap<String,String>()
-                    userdataObj.put("userid",userid.toString())
-                    userdataObj.put("uid",mDatabase!!.key.toString())
+                    userdataObj.put("userid", userid)
                     userdataObj.put("username",displayName)
                     userdataObj.put("userimage","default")
 

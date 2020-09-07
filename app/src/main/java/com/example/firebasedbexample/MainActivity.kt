@@ -23,7 +23,8 @@ class MainActivity : AppCompatActivity() {
 
 
         mAuth = FirebaseAuth.getInstance()
-        mAuthListener = FirebaseAuth.AuthStateListener {
+
+        mAuth!!.addAuthStateListener {
                 firebaseAuth: FirebaseAuth ->
             firebaseUser = firebaseAuth.currentUser
             if (firebaseUser != null)
@@ -35,6 +36,19 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this,"Not Signed In", Toast.LENGTH_LONG).show()
             }
         }
+
+//        mAuthListener = FirebaseAuth.AuthStateListener {
+//                firebaseAuth: FirebaseAuth ->
+//            firebaseUser = firebaseAuth.currentUser
+//            if (firebaseUser != null)
+//            {
+//                //Go to Dashboard
+//                startActivity(Intent(this, HomeScreenActivity::class.java))
+//                finish()
+//            }else{
+//                Toast.makeText(this,"Not Signed In", Toast.LENGTH_LONG).show()
+//            }
+//        }
 
 
 
@@ -55,17 +69,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    override fun onStart() {
-        super.onStart()
-        mAuth!!.addAuthStateListener { mAuthListener!! }
-    }
-
-    override fun onStop() {
-        super.onStop()
-        if (mAuthListener != null) {
-            mAuth!!.removeAuthStateListener(mAuthListener!!)
-        }
-    }
 
 
 }
